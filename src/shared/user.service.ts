@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { Model } from 'mongoose';
-
-import { LoginDTO, RegisterDTO } from '../auth/auth.dto';
+import { RegisterDTO } from '../auth/dto/register.dto';
+import { LoginDTO} from '../auth/dto/login.dto';
 import { Payload } from '../types/payload';
 import { User } from '../types/user';
 
@@ -11,14 +11,20 @@ import { User } from '../types/user';
 export class UserService {
   constructor(@InjectModel('User') private userModel: Model<User>) {}
 
-  async create(userDTO: RegisterDTO) {
+  async create(userDTO: RegisterDTO,file) {
     const { username } = userDTO;
+    console.log(username);
     const user = await this.userModel.findOne({ username });
     if (user) {
       throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
     }
-
-    const createdUser = new this.userModel(userDTO);
+    //addedby sly
+    const password = userDTO.password;
+    console.log(password);
+    const imgPath = file.path;
+    console.log(imgPath);
+    //ends here
+    const createdUser = new this.userModel({username:username,password:password,image:imgPath});
     await createdUser.save();
     return this.sanitizeUser(createdUser);
   }
@@ -54,4 +60,20 @@ export class UserService {
     return sanitized;
     // return user.depopulate('password');
   }
+
+  async update(id:string,user:RegisterDTO,file){
+    console.log(file.path);
+    const username = user.username;
+    const imagePath = file.path;
+    const password = user.password;
+    console.log(password,'update password');
+    const imgPath = file.path;
+    console.log(imgPath,'update path');
+       
+    return await this.userModel.findByIdAndUpdate(id,{username,image:imgPath},{new:true});
+    
+
+
+}
+
 }

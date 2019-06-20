@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { sign } from 'jsonwebtoken';
-
 import { UserService } from '../shared/user.service';
 import { Payload } from '../types/payload';
 

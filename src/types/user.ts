@@ -12,6 +12,7 @@ export interface Address {
 export interface User extends Document {
   username: string;
   readonly password: string;
+  image:string;
   seller: boolean;
   address: Address;
   created: Date;

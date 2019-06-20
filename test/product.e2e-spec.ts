@@ -1,7 +1,7 @@
 import { HttpStatus } from '@nestjs/common';
 import axios from 'axios';
 import * as mongoose from 'mongoose';
-import { RegisterDTO } from 'src/auth/auth.dto';
+import { RegisterDTO } from 'src/auth/dto/auth.dto';
 import { CreateProductDTO } from 'src/product/product.dto';
 import * as request from 'supertest';
 import { app, database } from './constants';

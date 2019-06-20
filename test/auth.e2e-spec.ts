@@ -2,7 +2,7 @@ import { HttpStatus } from '@nestjs/common';
 import 'dotenv/config';
 import * as mongoose from 'mongoose';
 import * as request from 'supertest';
-import { LoginDTO, RegisterDTO } from '../src/auth/auth.dto';
+import { LoginDTO, RegisterDTO } from '../src/auth/dto/auth.dto';
 import { app, database } from './constants';
 
 beforeAll(async () => {
