@@ -16,7 +16,7 @@ export class RealEstateController {
     @Post()
     @UseInterceptors(FilesInterceptor('images'))
     async create(@Body() estateDTO: RealEstateDTO,@UploadedFiles() files) {
-        console.log(files,estateDTO.price);
+        console.log(files,estateDTO.land);
         const prop= this.estateService.create(estateDTO,files);
       return prop;
     }

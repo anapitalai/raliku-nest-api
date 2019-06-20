@@ -20,10 +20,10 @@ export class RealEstateService {
       throw new HttpException('Property already exists', HttpStatus.BAD_REQUEST);
     }
     //addedby sly
-    const type = estateDTO.type;
+    const proptype = estateDTO.proptype;
     const price = estateDTO.price;
     console.log(price);
-    console.log(type);
+    console.log(proptype);
     console.log(files.length);
 
 
@@ -35,7 +35,7 @@ export class RealEstateService {
     //const imgPath = files[i].path;
     //console.log(imgPath);
     //ends here
-    const createdProp = new this.estateModel({ name: name, type: type, price: price, images: arr });
+    const createdProp = new this.estateModel({ name: name, proptype: proptype, price:price , images: arr });
     await createdProp.save();
     return createdProp;
   }

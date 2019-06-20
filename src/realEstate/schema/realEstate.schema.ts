@@ -3,12 +3,8 @@ import * as mongoose from 'mongoose';
 export const RealEstateSchema = new mongoose.Schema({
   name: String,
 
-  type: {
-    type: String,
-    default: false,
-  },
-  price:{type:Number,
-  default:false},
+  proptype: String,
+  price:Number,
 
   images:{
     type:Array,
