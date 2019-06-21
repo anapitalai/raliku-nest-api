@@ -2,16 +2,18 @@ import { Controller, Get, Post, Delete, Put, Param, Body, UseInterceptors, Uploa
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { RegisterDTO } from 'src/auth/dto/register.dto';
 import { Payload } from 'src/types/payload';
-import { RealEstateService } from './realEstate.service';
-import { RealEstateDTO } from './dto/realEstate.dto';
+
 import { RolesGuard } from 'src/guards/auth.guard';
+import { StationeryService } from './stationery.service';
+import { RealEstateDTO } from 'src/realEstate/dto/realEstate.dto';
+import { StationeryDTO } from './dto/stationery.dto';
 
 
 
 
-@Controller('realestate')
-export class RealEstateController {
-    constructor(private estateService: RealEstateService) { }
+@Controller('stationery')
+export class StationeryController {
+    constructor(private stationeryService: StationeryService) { }
     @Get()
     get() {
         return 'this works..'
@@ -20,9 +22,9 @@ export class RealEstateController {
     @Post()
     @UseGuards(RolesGuard)
     @UseInterceptors(FilesInterceptor('images'))
-    async create(@Body() estateDTO: RealEstateDTO, @UploadedFiles() files) {
+    async create(@Body() estateDTO: StationeryDTO, @UploadedFiles() files) {
         console.log(files, estateDTO.price);
-        const prop = this.estateService.create(estateDTO, files);
+        const prop = this.stationeryService.create(estateDTO, files);
         return prop;
     }
 

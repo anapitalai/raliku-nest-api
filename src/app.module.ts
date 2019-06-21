@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { OrderModule } from './order/order.module';
 import { RealEstateModule } from './realEstate/realEstate.module';
+import { StationeryModule } from './stationery/stationery.module';
 
 
 
@@ -18,6 +19,7 @@ import { RealEstateModule } from './realEstate/realEstate.module';
     ProductModule,
     OrderModule,
     RealEstateModule,
+    StationeryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

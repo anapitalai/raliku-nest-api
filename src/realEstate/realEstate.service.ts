@@ -32,9 +32,7 @@ export class RealEstateService {
       arr.push({ val: i,prop:files[i].path });
     }
     console.log(arr);
-    //const imgPath = files[i].path;
-    //console.log(imgPath);
-    //ends here
+
     const createdProp = new this.estateModel({ name: name, proptype: proptype, price:price , images: arr });
     await createdProp.save();
     return createdProp;
