@@ -16,7 +16,7 @@ export class StationeryController {
     constructor(private stationeryService: StationeryService) { }
     @Get()
     get() {
-        return 'this works..'
+        return this.stationeryService.get();
     }
 
     @Post()
@@ -29,10 +29,9 @@ export class StationeryController {
     }
 
 
-
-    @Delete('delete/:id')
+    @Delete(':id')
     purge(@Param('id') id) {
-        return `${id} was deleted`;
+        return this.stationeryService.delete(id);
     }
 
 

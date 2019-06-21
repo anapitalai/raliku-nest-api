@@ -11,8 +11,10 @@ import { RealEstateDTO } from './dto/realEstate.dto';
 @Injectable()
 export class RealEstateService {
   constructor(@InjectModel('Property') private readonly estateModel: Model<RealEstate>) { }
-
-
+  
+  async get():Promise<RealEstate[]>{
+    return await this.estateModel.find();
+  }
   async create(estateDTO: RealEstateDTO, files) {
     const name = estateDTO.name;
     const propName = await this.estateModel.findOne({ name });
@@ -37,4 +39,14 @@ export class RealEstateService {
     await createdProp.save();
     return createdProp;
   }
+  
+
+  async update(id:string,realEstate:RealEstate):Promise<RealEstate>{
+   return await this.estateModel.findByIdAndUpdate(id,realEstate,{new:true});
+}
+
+  async delete(id:string):Promise<RealEstate>{
+    return await this.estateModel.findByIdAndRemove(id);
+  }
+
 }

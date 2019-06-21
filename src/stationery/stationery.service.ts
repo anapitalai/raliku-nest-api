@@ -13,6 +13,9 @@ import { Stationery } from 'src/types/stationery';
 export class StationeryService {
   constructor(@InjectModel('Stationery') private readonly stationeryModel: Model<Stationery>) { }
 
+  async get():Promise<Stationery[]>{
+    return await this.stationeryModel.find();
+  }
 
   async create(stationeryDTO: StationeryDTO, files) {
     const stationery_name = stationeryDTO.stationery_name;
@@ -32,11 +35,13 @@ export class StationeryService {
       arr.push({ val: i,prop:files[i].path });
     }
     console.log(arr);
-    //const imgPath = files[i].path;
-    //console.log(imgPath);
-    //ends here
+
     const createdProp = new this.stationeryModel({ stationery_name: stationery_name, stationery_type: stationery_type, price:price , images: arr });
     await createdProp.save();
     return createdProp;
+  }
+
+  async delete(id:string):Promise<Stationery>{
+    return await this.stationeryModel.findByIdAndRemove(id);
   }
 }

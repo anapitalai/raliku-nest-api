@@ -5,6 +5,7 @@ import { Payload } from 'src/types/payload';
 import { RealEstateService } from './realEstate.service';
 import { RealEstateDTO } from './dto/realEstate.dto';
 import { RolesGuard } from 'src/guards/auth.guard';
+import { RealEstate } from 'src/types/realestate';
 
 
 
@@ -13,8 +14,8 @@ import { RolesGuard } from 'src/guards/auth.guard';
 export class RealEstateController {
     constructor(private estateService: RealEstateService) { }
     @Get()
-    get() {
-        return 'this works..'
+    get():Promise<RealEstate[]> {
+        return this.estateService.get();
     }
 
     @Post()
@@ -25,20 +26,22 @@ export class RealEstateController {
         const prop = this.estateService.create(estateDTO, files);
         return prop;
     }
+    
+    @Put(':id')
+    //@UseInterceptors(FileInterceptor('images'))
+    async update(@Param('id') id,@Body() estate:RealEstate):Promise<RealEstate>{
+    console.log(estate);
+    return this.estateService.update(id,estate);
+  }
 
 
-
-    @Delete('delete/:id')
-    purge(@Param('id') id) {
-        return `${id} was deleted`;
+    @Delete(':id')
+    purge(@Param('id') id):Promise<RealEstate> {
+        return this.estateService.delete(id);
     }
 
 
-    @Put('update/:id')
-    update() {
-        return 'item was update'
-    }
-
+  
 
 
 
