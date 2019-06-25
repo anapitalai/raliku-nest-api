@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import {Geoschema} from './geolocation.schema';
 
 export const RealEstateSchema = new mongoose.Schema({
   name: String,
@@ -9,6 +10,10 @@ export const RealEstateSchema = new mongoose.Schema({
   images:{
     type:Array,
     default:false,
+  },
+  geometry:{
+    type:Array,
+    default:Geoschema
   },
 
   created: { type: Date, default: Date.now },

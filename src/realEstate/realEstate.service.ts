@@ -24,6 +24,7 @@ export class RealEstateService {
     //addedby sly
     const proptype = estateDTO.proptype;
     const price = estateDTO.price;
+    const geometry=estateDTO.geometry;
     console.log(price);
     console.log(proptype);
     console.log(files.length);
@@ -35,7 +36,9 @@ export class RealEstateService {
     }
     console.log(arr);
 
-    const createdProp = new this.estateModel({ name: name, proptype: proptype, price:price , images: arr });
+
+
+    const createdProp = new this.estateModel({ name: name, proptype: proptype, price:price ,geometry:geometry, images: arr });
     await createdProp.save();
     return createdProp;
   }

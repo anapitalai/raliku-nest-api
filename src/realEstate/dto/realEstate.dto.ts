@@ -3,5 +3,6 @@ export class RealEstateDTO{
     proptype:string;
     price:number;
     images?:string;
+    geometry?:string;
     created: Date;
 }
