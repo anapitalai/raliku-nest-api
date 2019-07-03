@@ -17,8 +17,9 @@
     "start:dev": "nodemon",
     "start:test": "NODE_ENV=test nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
-    "postinstall": "npm run start:prod",
+    
     "start:prod": "node dist/src/main.js",
+    "postinstall": "npm run start:prod",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "npm run test:e2e",
     "test:watch": "jest --watch",
