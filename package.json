@@ -19,7 +19,6 @@
     "start:debug": "nodemon --config nodemon-debug.json",
     
     "start:prod": "node dist/src/main.js",
-    "postinstall": "npm run start:prod",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "npm run test:e2e",
     "test:watch": "jest --watch",
