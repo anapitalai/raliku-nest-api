@@ -1,14 +1,17 @@
 import * as mongoose from 'mongoose';
 
+
 //geolocation schema
 export const Geoschema = new mongoose.Schema({
     type:{
       type:String,
-      default:"Points"
+      default:"Point"
     },
-    cordinates:{
+    coordinates:{
       type:[Number],
       index:"2dsphere"
     }
     });
-  
+
+
+    

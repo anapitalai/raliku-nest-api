@@ -5,4 +5,6 @@ export class RealEstateDTO{
     images?:string;
     geometry?:string;
     created: Date;
+ 
 }
+

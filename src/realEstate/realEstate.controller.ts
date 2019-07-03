@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Put, Param, Body, UseInterceptors, UploadedFile, UploadedFiles, UseGuards } from '@nestjs/common';
+import { Controller, Query,Get, Post, Delete, Put, Param, Body, UseInterceptors, UploadedFile, UploadedFiles, UseGuards } from '@nestjs/common';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { RegisterDTO } from 'src/auth/dto/register.dto';
 import { Payload } from 'src/types/payload';
@@ -10,12 +10,20 @@ import { RealEstate } from 'src/types/realestate';
 
 
 
+
 @Controller('realestate')
 export class RealEstateController {
     constructor(private estateService: RealEstateService) { }
     @Get()
     get():Promise<RealEstate[]> {
         return this.estateService.get();
+    }
+
+    @Get('filter')
+    getEstates(@Query() qlng,qlat):Promise<RealEstate[]> {
+       
+  
+        return this.estateService.getEstates(qlng,qlat);
     }
 
     @Post()

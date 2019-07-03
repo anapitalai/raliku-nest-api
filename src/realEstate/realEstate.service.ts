@@ -15,6 +15,15 @@ export class RealEstateService {
   async get():Promise<RealEstate[]>{
     return await this.estateModel.find();
   }
+   
+  async getEstates(lng,lat):Promise<RealEstate[]>{
+    //lng = estateDTO.location.coordinates.lng;
+    //lat = estateDTO.location.coordinates.lat;
+
+    return await this.estateModel.aggregate([ { $geoNear: { near: {type:'Point',coordinates:[parseFloat(lng), parseFloat(lat)]}, distanceField: "dist.calculated", maxDistance: 100000, spherical: true } } ]);
+  }
+
+
   async create(estateDTO: RealEstateDTO, files) {
     const name = estateDTO.name;
     const propName = await this.estateModel.findOne({ name });
@@ -28,6 +37,7 @@ export class RealEstateService {
     console.log(price);
     console.log(proptype);
     console.log(files.length);
+    console.log(geometry);
 
 
     var arr = [];

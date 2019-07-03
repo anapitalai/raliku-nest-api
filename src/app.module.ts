@@ -8,6 +8,7 @@ import { ProductModule } from './product/product.module';
 import { OrderModule } from './order/order.module';
 import { RealEstateModule } from './realEstate/realEstate.module';
 import { StationeryModule } from './stationery/stationery.module';
+import { GeoModule } from './geo/geo.module';
 
 
 
@@ -20,6 +21,7 @@ import { StationeryModule } from './stationery/stationery.module';
     OrderModule,
     RealEstateModule,
     StationeryModule,
+    GeoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

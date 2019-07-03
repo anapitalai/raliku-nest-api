@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
-import {Geoschema} from './geolocation.schema';
+import { Geoschema } from './geolocation.schema';
+
 
 export const RealEstateSchema = new mongoose.Schema({
   name: String,
@@ -11,10 +12,10 @@ export const RealEstateSchema = new mongoose.Schema({
     type:Array,
     default:false,
   },
-  geometry:{
-    type:Array,
-    default:Geoschema
-  },
+ geometry:{type:Array,default:{type:{type:String,default:'Point'},coordinates:{type:[Number],index:'2dsphere'}}},
 
-  created: { type: Date, default: Date.now },
+ created: { type: Date, default: Date.now },
 });
+
+
+//geometry:{type:{type:String,default:'Point'},coordinates:{type:[Number],index:'2dsphere'}},
