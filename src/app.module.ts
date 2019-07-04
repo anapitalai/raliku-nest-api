@@ -14,7 +14,7 @@ import { GeoModule } from './geo/geo.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot('mongodb://alois:noGoZone2019@ds157516.mlab.com:57516/assets'),
     SharedModule,
     AuthModule,
     ProductModule,
