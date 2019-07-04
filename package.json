@@ -4,7 +4,7 @@
   "description": "ecommerce app with nestjs",
   "author": "Kelvin Mai",
   "license": "MIT",
-  "main": "dist/main.js",
+  "main": "main.js",
   "engines": {
     "node": "10.15.3",
     "npm": "6.4.1"
