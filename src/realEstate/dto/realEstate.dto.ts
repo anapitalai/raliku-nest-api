@@ -1,9 +1,9 @@
 export class RealEstateDTO{
     name:string;
-    proptype:string;
+    type:string;
     price:number;
     images?:string;
-    geometry?:string;
+    //geometry?:string;
     created: Date;
  
 }

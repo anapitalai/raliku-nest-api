@@ -10,7 +10,7 @@ import { RealEstateDTO } from './dto/realEstate.dto';
 
 @Injectable()
 export class RealEstateService {
-  constructor(@InjectModel('Property') private readonly estateModel: Model<RealEstate>) { }
+  constructor(@InjectModel('RealEstate') private readonly estateModel: Model<RealEstate>) { }
   
   async get():Promise<RealEstate[]>{
     return await this.estateModel.find();
@@ -31,13 +31,13 @@ export class RealEstateService {
       throw new HttpException('Property already exists', HttpStatus.BAD_REQUEST);
     }
     //addedby sly
-    const proptype = estateDTO.proptype;
+    const type = estateDTO.type;
     const price = estateDTO.price;
-    const geometry=estateDTO.geometry;
+    //const geometry=estateDTO.geometry;
     console.log(price);
-    console.log(proptype);
+    console.log(type);
     console.log(files.length);
-    console.log(geometry);
+    //console.log(geometry);
 
 
     var arr = [];
@@ -48,7 +48,7 @@ export class RealEstateService {
 
 
 
-    const createdProp = new this.estateModel({ name: name, proptype: proptype, price:price ,geometry:geometry, images: arr });
+    const createdProp = new this.estateModel({ name: name, type: type, price:price , images: arr });
     await createdProp.save();
     return createdProp;
   }

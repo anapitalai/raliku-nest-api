@@ -7,9 +7,9 @@ import { MulterModule } from '@nestjs/platform-express';
 
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Property', schema: RealEstateSchema }]),
+  imports: [MongooseModule.forFeature([{ name: 'RealEstate', schema: RealEstateSchema }]),
  MulterModule.register({
-    dest: './propertyImages'
+    dest: './realestates'
   })],
   providers: [RealEstateService],
   exports:[RealEstateService],

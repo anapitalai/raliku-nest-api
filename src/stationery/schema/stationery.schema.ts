@@ -1,15 +1,12 @@
 import * as mongoose from 'mongoose';
 
 export const StationerySchema = new mongoose.Schema({
-  stationery_name: String,
-
-  stationery_type: String,
+  name: String,
+  type: String,
   price:Number,
-
   images:{
     type:Array,
     default:false,
   },
-
   created: { type: Date, default: Date.now },
 });

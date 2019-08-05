@@ -3,12 +3,10 @@ import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { RegisterDTO } from 'src/auth/dto/register.dto';
 import { Payload } from 'src/types/payload';
 
-import { RolesGuard } from 'src/guards/auth.guard';
+//import { RolesGuard } from 'src/guards/auth.guard';
 import { StationeryService } from './stationery.service';
 import { RealEstateDTO } from 'src/realEstate/dto/realEstate.dto';
 import { StationeryDTO } from './dto/stationery.dto';
-
-
 
 
 @Controller('stationery')
@@ -20,7 +18,7 @@ export class StationeryController {
     }
 
     @Post()
-    @UseGuards(RolesGuard)
+    //@UseGuards(RolesGuard)
     @UseInterceptors(FilesInterceptor('images'))
     async create(@Body() estateDTO: StationeryDTO, @UploadedFiles() files) {
         console.log(files, estateDTO.price);

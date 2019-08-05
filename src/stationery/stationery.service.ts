@@ -18,13 +18,13 @@ export class StationeryService {
   }
 
   async create(stationeryDTO: StationeryDTO, files) {
-    const stationery_name = stationeryDTO.stationery_name;
-    const propName = await this.stationeryModel.findOne({ stationery_name });
+    const name = stationeryDTO.name;
+    const propName = await this.stationeryModel.findOne({ name:name });
     if (propName) {
       throw new HttpException('Stationery already exists', HttpStatus.BAD_REQUEST);
     }
     //addedby sly
-    const stationery_type = stationeryDTO.stationery_type;
+    const type = stationeryDTO.type;
     const price = stationeryDTO.price;
     console.log(price);
     console.log(files.length);
@@ -36,7 +36,7 @@ export class StationeryService {
     }
     console.log(arr);
 
-    const createdProp = new this.stationeryModel({ stationery_name: stationery_name, stationery_type: stationery_type, price:price , images: arr });
+    const createdProp = new this.stationeryModel({ name: name, type: type, price:price , images: arr });
     await createdProp.save();
     return createdProp;
   }

@@ -4,7 +4,7 @@ import { RegisterDTO } from 'src/auth/dto/register.dto';
 import { Payload } from 'src/types/payload';
 import { RealEstateService } from './realEstate.service';
 import { RealEstateDTO } from './dto/realEstate.dto';
-import { RolesGuard } from 'src/guards/auth.guard';
+//import { RolesGuard } from 'src/guards/auth.guard';
 import { RealEstate } from 'src/types/realestate';
 
 
@@ -27,7 +27,7 @@ export class RealEstateController {
     }
 
     @Post()
-    @UseGuards(RolesGuard)
+ 
     @UseInterceptors(FilesInterceptor('images'))
     async create(@Body() estateDTO: RealEstateDTO, @UploadedFiles() files) {
         console.log(files, estateDTO.price);
