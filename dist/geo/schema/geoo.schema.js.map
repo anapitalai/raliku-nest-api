@@ -1,0 +1,1 @@
+{"version":3,"file":"geoo.schema.js","sourceRoot":"","sources":["../../../src/geo/schema/geoo.schema.ts"],"names":[],"mappings":";;AAAA,qCAAqC;AAGxB,QAAA,UAAU,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IACtC,IAAI,EAAC;QACD,IAAI,EAAC,MAAM;QACX,OAAO,EAAC,OAAO;KAChB;IACD,WAAW,EAAC;QACV,IAAI,EAAC,CAAC,MAAM,CAAC;QACb,KAAK,EAAC,UAAU;KACjB;CACF,CAAC,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"geolocation.schema.js","sourceRoot":"","sources":["../../../src/realEstate/schema/geolocation.schema.ts"],"names":[],"mappings":";;AAAA,qCAAqC;AAIxB,QAAA,SAAS,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IACzC,IAAI,EAAC;QACH,IAAI,EAAC,MAAM;QACX,OAAO,EAAC,OAAO;KAChB;IACD,WAAW,EAAC;QACV,IAAI,EAAC,CAAC,MAAM,CAAC;QACb,KAAK,EAAC,UAAU;KACjB;CACA,CAAC,CAAC"}
