@@ -29,7 +29,7 @@ export class StationeryService {
     console.log(price);
     console.log(files.length);
 
-
+    //array.map<[Type1, Type2]>(key => [key, obj[key]])
     var arr = [];
     for (var i = 0; i < files.length; ++i) {
       arr.push({ val: i,prop:files[i].path });
