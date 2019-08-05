@@ -5,7 +5,7 @@ export const StationerySchema = new mongoose.Schema({
   type: String,
   price:Number,
   images:{
-    type:Array,
+    type:String,
     default:false,
   },
   created: { type: Date, default: Date.now },

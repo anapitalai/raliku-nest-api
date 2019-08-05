@@ -3,7 +3,7 @@ export interface Stationery extends Document{
   property_name: string;
   property_type: string;
   price:number;
-  images?:[];
+  images?:string;
   created: Date;
 }
 
