@@ -8,6 +8,7 @@ import { RealEstate } from '../types/realestate';
 import { User } from 'src/types/user';
 import { StationeryDTO } from './dto/stationery.dto';
 import { Stationery } from 'src/types/stationery';
+import { stringify } from 'querystring';
 
 @Injectable()
 export class StationeryService {
@@ -29,10 +30,13 @@ export class StationeryService {
     console.log(price);
     console.log(files.length);
 
-    //array.map<[Type1, Type2]>(key => [key, obj[key]])
-    var arr = [];
-    for (var i = 0; i < files.length; ++i) {
-      arr.push({ val: i,prop:files[i].path });
+    const arr = [];
+  
+    //let arr2 = <Array<string>>arr;
+
+        for (var i = 0; i < files.length; ++i) {
+          
+      arr.push({ prop:files[i].path });
     }
     console.log(arr);
 

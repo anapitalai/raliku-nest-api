@@ -2,6 +2,6 @@ export class StationeryDTO{
     name:string;
     type:string;
     price:number;
-    images?:[];
+    images?:string;
     created: Date;
 }
